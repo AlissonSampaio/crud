@@ -26,8 +26,9 @@ public class FuncionariosController {
 			model.addAttribute("mensagem", "Erro no cadastro!");
 			return novo(funcionario);
 		}
-		attributes.addAttribute("mensagem","Cerveja salva com sucesso!");
+		attributes.addAttribute("mensagem","Funcionário salvo com sucesso!");
 		System.out.println(">>>>>> codigo: " + funcionario.getCodigo());
+		System.out.println(">>>>>> nome: " + funcionario.getNome());
 		return "redirect:/funcionarios/novo";
 	}
 	

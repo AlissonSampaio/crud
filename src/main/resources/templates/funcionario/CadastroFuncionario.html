@@ -1,69 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
- xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>		
-		
-		<title>Health Solutions</title>	
-		
-		<link rel="stylesheet" type="text/css" href="/crud/layout/stylesheets/vendors.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/crud/layout/stylesheets/health.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/crud/layout/stylesheets/application.css"/>
-			
-	</head>
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator="'Layout/LayoutPadrao'">
 	
-	<body>
+<head></head>
 	
-	
-	<div class="aw-layout-page">
-	
-	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
-	  <div class="container-fluid">
+<body>	
+<section layout:fragment="conteudo">
 
-	    <div class="navbar-header">
-	      <a class="navbar-brand  hidden-xs" href="#">
-	        <img alt="Health Solutions" height= 30 width=130 src="/crud/layout/images/logo.png"/>
-	      </a>
-
-	      <ul class="nav  navbar-nav">
-	        <li>
-	          <a href="#" class="js-sidebar-toggle"><i class="fa  fa-bars"></i></a>
-	        </li>
-	      </ul>
-	    </div>
-
-
-	  </div>
-	</nav>
-	
-	<aside class="aw-layout-sidebar  js-sidebar">
-		<div class="aw-layout-sidebar__content">
-	
-    <nav class="aw-menu  js-menu">
-      <ul class="aw-menu__list">
-
-        <li class="aw-menu__item  is-active">
-          <a href="#">
-            <i class="fa  fa-fw  fa-file-text"></i><span>Cadastros</span>
-            <i class="aw-menu__navigation-icon  fa"></i>
-          </a>
-      
-          <ul class="aw-menu__list  aw-menu__list--sublist">
-            <li class="aw-menu__item  aw-menu__item--link"><a href="CadastroFuncionario.html">Cadastro de Funcionários</a></li>
-            <li class="aw-menu__item  aw-menu__item--link  is-active"><a href="PesquisaFuncionario.html">Pesquisa de Funcionários</a></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </nav>
-    
-		</div>
-	</aside>
-	
-	<section class="aw-layout-content  js-content">
-		
 	<div class="page-header">
 		<div class="container-fluid">
 			<h1>
@@ -80,19 +25,19 @@
 	<form method="POST" th:object="${funcionario}" class="form-vertical  js-form-loading">
 	<span th:text="${mensagem}">Erro no cadastro!</span>
 	<br>
-		
-		<div class="form-group">
-		<label for="codigo">Código</label>
-		<input type="text" id="codigo" th:field="*{codigo}" class="form-control">
-		<p>
+		<div class="row">
+			<div class="form-group col-sm-3">
+			<label for="codigo">Código</label>
+			<input type="text" id="codigo" th:field="*{codigo}" class="form-control">
+			<p>
+			</div>
+			
+			<div class="form-group col-sm-10">
+			<label for="nome">Nome</label>
+			<input type="text" id="nome" th:field="*{nome}" class="form-control">
+			<p>
+			</div>
 		</div>
-		
-		<div class="form-group">
-		<label for="nome">Nome</label>
-		<input type="text" id="nome" th:field="*{nome}" class="form-control">
-		<p>
-		</div>
-		
 		<div class="form-group">
 			<button class="btn  btn-primary" type="submit">Salvar</button>
 		</div>
@@ -100,17 +45,7 @@
 	</form>
 	</div>
 	
-	</section>
+</section>
 	
-	<footer class="aw-layout-footer  js-content">
-		<div class="container-fluid">
-			<span class="aw-footer-disclaimer">&copy; 2020 Health Solutions. Todos os direitos reservados.</span>
-		</div>
-	</footer>
-	</div>
-	
-	<script src="/crud/layout/javascripts/vendors.min.js"></script>
-	<script src="/crud/layout/javascripts/health.min.js"></script>
-	
-	</body>
+</body>
 </html>
