@@ -144,7 +144,7 @@
   height: 65px;
   opacity: 0.8;
   border-radius: 100%;
-  background: #1e94d2;
+  background: 	#228B22;
   text-indent: -9999px;
   -moz-animation: aw-balls-spinner 3s infinite ease-in-out;
   -webkit-animation: aw-balls-spinner 3s infinite ease-in-out;
@@ -243,7 +243,7 @@
   display: none;
   padding: 0;
   padding-top: 25%;
-  background-color: #1e94d2;
+  background-color: 	#228B22;
   text-align: center;
   font-size: 18px;
 }
@@ -373,11 +373,11 @@
   text-decoration: none;
 }
 .aw-menu__item.is-active > a {
-  color: #1e94d2;
+  color: 	#228B22;
 }
 .aw-menu__item.is-expanded {
   border-left: 3px solid;
-  border-left-color: #1e94d2;
+  border-left-color: 	#228B22;
   background: #f4f4f4;
 }
 .aw-menu__item.is-expanded .aw-menu__navigation-icon:before {
@@ -408,11 +408,11 @@
   padding: 20px;
   margin-bottom: 15px;
   border: 1px solid #eeeeee;
-  border-bottom: 3px solid #1e94d2;
+  border-bottom: 3px solid 	#228B22;
 }
 .aw-box__icon {
   float: left;
-  color: #1e94d2;
+  color: 	#228B22;
 }
 .aw-box__value {
   font-size: 1.69em;

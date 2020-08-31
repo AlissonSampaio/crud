@@ -1,30 +1,35 @@
 package com.healthsolutions.crud.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
+@Table(name = "funcionario")
 public class Funcionario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigoId;
+	private Long codigoid;
 	
 	@NotBlank(message = "Codigo é obrigatório")
 	private String codigo;
-
+	
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
 	
 	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigoId == null) ? 0 : codigoId.hashCode());
+		result = prime * result + ((codigoid == null) ? 0 : codigoid.hashCode());
 		return result;
 	}
 
@@ -37,10 +42,10 @@ public class Funcionario {
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;
-		if (codigoId == null) {
-			if (other.codigoId != null)
+		if (codigoid == null) {
+			if (other.codigoid != null)
 				return false;
-		} else if (!codigoId.equals(other.codigoId))
+		} else if (!codigoid.equals(other.codigoid))
 			return false;
 		return true;
 	}
@@ -61,4 +66,11 @@ public class Funcionario {
 		this.nome = nome;
 }
 
+	public Long getCodigoId() {
+		return codigoid;
+	}
+	
+	public void setCodigoId(Long codigoId) {
+		this.codigoid = codigoId;
+	}
 }

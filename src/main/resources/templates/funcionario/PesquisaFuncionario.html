@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator="'layout/LayoutPadrao'"
+ xmlns:crud="http://crud.healthsolutions.com">
+	
+<head>
+	<title>Pesquisa de Funcionarios</title>
+</head>
+	
+<body>	
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Pesquisa de Funcionário</h1>
+				</div>
+				
+				<div class="col-sm-2">
+					<div class="aw-page-header-controls">
+						<a class="btn btn-default" onclick="window.location.href='/crud/funcionarios/novo'">
+							<i class="glyphicon glyphicon-plus-sign"></i> <span class="hidden-xs hidden-sm">Novo Funcionario</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<form method="GET" th:object="${funcionarioFilter}">
+			<div class="row">
+				<div class="form-group col-sm-3">
+				<label for="codigo" class="control-label">Código</label>
+				<input type="text" id="codigo" class="form-control js-plain" maxlength="4" autofocus="autofocus" th:field="*{codigo}"/>
+				<p>
+				</div>
+				
+				<div class="form-group col-sm-10">
+				<label for="nome" class="control-label">Nome</label>
+				<input type="text" id="nome" class="form-control" th:field="*{nome}" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'/>
+				<p>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit">Pesquisar</button>
+			</div>
+		
+		</form>
+		<div class="table-responsive bw-tabela-simples">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="table-funcionarios-col-codigo">Código</th>
+						<th class="table-funcionarios-col-nome">Nome</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="funcionario : ${funcionarios}">
+						<td class="text-left" th:text="${funcionario.codigo}"></td>
+						<td class="text-left" th:text="${funcionario.nome}"></td>
+						<td class="text-center">
+							<a class="btn btn-link btn-xs js-tooltip" tittle="Editar">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</a>
+							<a class="btn btn-link btn-xs js-tooltip js-exclusao-btn" titte="Excluir" href="#"
+							data:url=@{/funcionarios/{codigoid}(codigoid=${funcionario.codigoid})}
+							data:objeto="funcionario.nome">
+								<i class="glyphicon glyphicon-remove"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</section>	
+</body>	
+</html>
